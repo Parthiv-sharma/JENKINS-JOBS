@@ -1,13 +1,17 @@
 /* ==============================
-   ComplianceDB1
+   Create ComplianceDB1
    ============================== */
+IF NOT EXISTS (SELECT 1 FROM sys.databases WHERE name = 'ComplianceDB1')
+BEGIN
+    CREATE DATABASE ComplianceDB1;
+END;
+GO
+
 USE ComplianceDB1;
 GO
 
 IF NOT EXISTS (
-    SELECT 1
-    FROM sys.tables
-    WHERE name = 'SALESDATA'
+    SELECT 1 FROM sys.tables WHERE name = 'SALESDATA'
 )
 BEGIN
     CREATE TABLE SALESDATA (
@@ -20,15 +24,19 @@ END;
 GO
 
 /* ==============================
-   ComplianceDB2
+   Create ComplianceDB2
    ============================== */
+IF NOT EXISTS (SELECT 1 FROM sys.databases WHERE name = 'ComplianceDB2')
+BEGIN
+    CREATE DATABASE ComplianceDB2;
+END;
+GO
+
 USE ComplianceDB2;
 GO
 
 IF NOT EXISTS (
-    SELECT 1
-    FROM sys.tables
-    WHERE name = 'SALESDATA'
+    SELECT 1 FROM sys.tables WHERE name = 'SALESDATA'
 )
 BEGIN
     CREATE TABLE SALESDATA (

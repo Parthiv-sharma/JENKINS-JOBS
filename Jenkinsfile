@@ -2,7 +2,7 @@ pipeline {
     agent { label 'AGENT-1' }
 
     environment {
-        MSSQL_HOST = '10.1.2.113'
+        MSSQL_HOST = '10.1.2.83'
         MSSQL_USER = 'sa'
         MSSQL_PASS = 'cHarithA1@2'
     }
@@ -19,14 +19,9 @@ pipeline {
         stage('Run Compliance SQL') {
             steps {
                 sh '''
-                /opt/mssql-tools/bin/sqlcmd \
-                  -S ${MSSQL_HOST} \
-                  -U ${MSSQL_USER} \
-                  -P ${MSSQL_PASS} \
-                  -i compliance.sql \
-                  -N -C
-                '''
-            }
-        }
+                    sudo /opt/mssql-tools/bin/sqlcmd -S ${MSSQL_HOST} -U ${MSSQL_USER} -P ${MSSQL_PASS} -i /home/ec2-user/Jenkins-TEST/workspace/JENKINS-JOB-MS-SQL/compliance.sql -N -C
+        '''
+    }
+}
     }
 }
