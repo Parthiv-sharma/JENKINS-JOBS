@@ -19,7 +19,7 @@ pipeline {
         stage('Run Compliance SQL') {
             steps {
                 sh '''
-                sqlcmd \
+                /opt/mssql-tools/bin/sqlcmd \
                   -S ${MSSQL_HOST} \
                   -U ${MSSQL_USER} \
                   -P ${MSSQL_PASS} \
