@@ -19,7 +19,7 @@ pipeline {
         stage('Run Compliance SQL') {
             steps {
                 sh '''
-                    sqlcmd -S ${MSSQL_HOST} -U ${MSSQL_USER} -P ${MSSQL_PASS} -i /home/ec2-user/Jenkins-TEST/workspace/JENKINS-JOB-MS-SQL/compliance.sql -N -C
+                    sqlcmd -S ${MSSQL_HOST} -U ${MSSQL_USER} -P ${MSSQL_PASS} -i compliance.sql -N -C
         '''
     }
 }
