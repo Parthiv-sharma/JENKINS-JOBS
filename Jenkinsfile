@@ -1,27 +1,45 @@
 pipeline {
-    agent { label 'AGENT-1' }
-
-    environment {
-        MSSQL_HOST = '10.70.0.71'
-        MSSQL_USER = 'syshosis'
-        MSSQL_PASS = 'RuVRXVkM7G2G4HS'
-    }
+    agent any
 
     stages {
-
-        stage('Checkout SQL Repo') {
+        stage('Read JSON and Print DB IPs') {
             steps {
-                git branch: 'main',
-                    url: 'https://github.com/Parthiv-sharma/JENKINS-JOBS.git'
+                script {
+                    def jsonText = readFile('customer-config.json')
+                    def config = new groovy.json.JsonSlurperClassic().parseText(jsonText)
+
+                    config.environments.each { envName, envData ->
+
+                        // Ignore shared explicitly
+                        if (envName == 'shared') {
+                            return
+                        }
+
+                        echo "========== ENV: ${envName} =========="
+
+                        envData.each { customerName, customerData ->
+
+                            // Ignore authorizedUsers
+                            if (customerName == 'authorizedUsers') {
+                                return
+                            }
+
+                            // Defensive checks
+                            if (!customerData.containsKey('customer-params')) {
+                                return
+                            }
+
+                            def customerParams = customerData['customer-params']
+
+                            if (customerParams.containsKey('db_ip')) {
+                                def dbIp = customerParams.db_ip
+                                echo "Customer: ${customerName} | DB_IP: ${dbIp}"
+                            }
+                        }
+                    }
+                }
             }
         }
+    }
+}
 
-        stage('Run Compliance SQL') {
-            steps {
-                sh '''
-                sqlcmd -S ${MSSQL_HOST} -U ${MSSQL_USER} -P ${MSSQL_PASS} -i compliance.sql -N -C
-        '''
-    }
-}
-    }
-}

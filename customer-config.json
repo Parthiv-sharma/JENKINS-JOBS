@@ -1,0 +1,541 @@
+{
+  "environments": {
+    "prod": {
+      "authorizedUsers": [
+        "Michael.Lanham@pdisoftware.com",
+        "xandy.hand@pdisoftware.com",
+        "wayne.phipps@pdisoftware.com",
+        "eswarnath.v@pditechnologies.com",
+        "venugopal.k@pditechnologies.com",
+        "vinodkumar.j@pditechnologies.com",
+        "rushikesh.reddy@pditechnologies.com",
+        "robert.davis@pditechnologies.com"
+      ],
+      "pos-mt": {
+        "optional-params": {
+          "InstallDynatrace": false,
+          "InstallDatadog": true,
+          "FullStackMonitoring": false,
+          "Configure_FileServer": true,
+          "installNisaCommsLib": true,
+          "email-ids": "ep-cloudops-pos@pdisoftware.com",
+          "isD10OrD12Customer": true,
+          "awsRegion": "eu-central-1",
+          "installdotnetPOSWatchDogservice": true
+        },
+        "customer-params": {
+          "dbids": "RONTEC,TRIDENT",
+          "db_ip": "10.70.18.56",
+          "Subnet": "subnet-0731de5955df0fbac",
+          "vpcid": "vpc-0310747fafe9a327a",
+          "db_endpoint": "pos-mt-db.internal.pos.pditechnologies.com",
+          "smb_url": "pos-mt-smb.internal.pos.pditechnologies.com",
+          "file_server_url": "pos-mt-file-server.internal.pos.pditechnologies.com"
+        }
+      },
+      "shell": {
+        "optional-params": {
+          "InstallDynatrace": false,
+          "InstallDatadog": false,
+          "FullStackMonitoring": false,
+          "installwinscp": true,
+          "installOrbisProcessServices": true,
+          "email-ids": "ep-cloudops-pos@pdisoftware.com",
+          "isD7Customer": true,
+          "awsRegion": "eu-central-1",
+          "installdotnetPOSWatchDogservice": false
+        },
+        "customer-params": {
+          "dbids": "UK",
+          "db_ip": "shell-prod-orbis-db.cvjxldpomnes.eu-central-1.rds.amazonaws.com",
+          "db_endpoint": "shell-db.internal.pos.pdisoftware.com",
+          "smb_url": "shell-smb.internal.pos.pdisoftware.com"
+        }
+      },
+      "pos-mt-us": {
+        "optional-params": {
+          "InstallDynatrace": false,
+          "InstallDatadog": true,
+          "FullStackMonitoring": false,
+          "InstallEnvoyConnector": true,
+          "Configure_FileServer": true,
+          "email-ids": "ep-cloudops-pos@pdisoftware.com",
+          "InstallEpsOptAppserver": true,
+          "isD10OrD12Customer": true,
+          "awsRegion": "us-east-1",
+          "installdotnetPOSWatchDogservice": false
+        },
+        "customer-params": {
+          "dbids": "GASPRO,TOWNPUMP,WHITEHEAD",
+          "Subnet": "subnet-08a6823ec1a923a15",
+          "vpcid": "vpc-054844f477a4d84e7",
+          "db_ip": "10.70.80.62",
+          "db_endpoint": "pos-mt-us-db.internal.pos.pditechnologies.com",
+          "smb_url": "pos-mt-us-smb.internal.pos.pditechnologies.com",
+          "cognito_url": "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_I9sZq0TQC/.well-known/jwks.json",
+          "file_server_url": "pos-mt-us-file-server.internal.pos.pditechnologies.com"
+        }
+      }
+    },
+    "stage": {
+      "authorizedUsers": [
+        "Michael.Lanham@pdisoftware.com",
+        "xandy.hand@pdisoftware.com",
+        "wayne.phipps@pdisoftware.com",
+        "eswarnath.v@pditechnologies.com",
+        "venugopal.k@pditechnologies.com",
+        "vinodkumar.j@pditechnologies.com",
+        "robert.davis@pditechnologies.com",
+        "rushikesh.reddy@pditechnologies.com",
+        "sudhakarareddy.m@pditechnologies.com",
+        "sivanjaneya.r@pditechnologies.com",
+        "manikanta.taneeru@pditechnologies.com"
+      ],
+      "pos-mt-us": {
+        "optional-params": {
+          "InstallEnvoyConnector": true,
+          "InstallDatadog": true,
+          "email-ids": "ep-cloudops-pos@pdisoftware.com",
+          "InstallEpsOptAppserver": true,
+          "isD10OrD12Customer": true,
+          "Configure_FileServer": true,
+          "awsRegion": "us-east-1",
+          "installdotnetPOSWatchDogservice": false
+        },
+        "customer-params": {
+          "dbids": "GASPRO,SALESDEMO,TOWNPUMP,WHITEHEAD",
+          "Subnet": "subnet-08a6823ec1a923a15",
+          "vpcid": "vpc-054844f477a4d84e7",
+          "db_ip": "10.70.72.46",
+          "db_endpoint": "pos-mt-us-db.internal.pos.pditechnologies.com",
+          "smb_url": "pos-mt-us-smb.internal.pos.pditechnologies.com",
+          "cognito_url": "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_ZKvC4fFyq/.well-known/jwks.json",
+          "file_server_url": "pos-mt-us-file-server.internal.pos.pditechnologies.com"
+        }
+      },
+      "pos-mt-us-fuel": {
+        "optional-params": {
+          "InstallEnvoyConnector": true,
+          "InstallDatadog": false,
+          "email-ids": "ep-cloudops-pos@pdisoftware.com",
+          "InstallEpsOptAppserver": true,
+          "isD10OrD12Customer": true,
+          "Configure_FileServer": true,
+          "awsRegion": "us-east-1",
+          "installdotnetPOSWatchDogservice": true
+        },
+        "customer-params": {
+          "dbids": "WHITEHEAD,UDF",
+          "Subnet": "subnet-08a6823ec1a923a15",
+          "vpcid": "vpc-054844f477a4d84e7",
+          "db_ip": "10.70.72.237",
+          "db_endpoint": "pos-mt-us-fuel-db.internal.pos.pditechnologies.com",
+          "smb_url": "pos-mt-us-fuel-smb.internal.pos.pditechnologies.com",
+          "cognito_url": "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_ZKvC4fFyq/.well-known/jwks.json",
+          "file_server_url": "pos-mt-us-fuel-file-server.internal.pos.pditechnologies.com"
+        }
+      },
+      "shell": {
+        "optional-params": {
+          "InstallDynatrace": false,
+          "InstallDatadog": true,
+          "FullStackMonitoring": false,
+          "email-ids": "ep-cloudops-pos@pdisoftware.com",
+          "isD7Customer": true,
+          "awsRegion": "eu-central-1",
+          "installdotnetPOSWatchDogservice": false
+        },
+        "customer-params": {
+          "dbids": "UKSTAGING,NLSTAGING,UKSANDBOX,WRSTAGING,NLSANDBOX,NLPIMTEST,FRSTAGING,BESTAGING,LUSTAGING,BLSTAGING,PIMTEST,ZASTAGING,FRSANDBOX,BESANDBOX,LUSANDBOX",
+          "db_ip": "shell-stage-orbis-db.czn1boekpv7s.eu-central-1.rds.amazonaws.com",
+          "db_endpoint": "shell-db.internal.pos.pdisoftware.com",
+          "smb_url": "shell-smb.internal.pos.pdisoftware.com"
+        }
+      },
+      "pos-mt": {
+        "optional-params": {
+          "InstallDatadog": true,
+          "Configure_FileServer": true,
+          "installNisaCommsLib": true,
+          "email-ids": "ep-cloudops-pos@pdisoftware.com",
+          "isD10OrD12Customer": true,
+          "awsRegion": "eu-central-1",
+          "installdotnetPOSWatchDogservice": true,
+          "installD7ReplicationOnD12": true
+        },
+        "customer-params": {
+          "dbids": "ASCONA,RONTEC,TRIDENT,SHELLDO,CERTAS,PDIEU",
+          "Subnet": "subnet-0296f66daed0f5953",
+          "vpcid": "vpc-0c41eec58ca8632be",
+          "db_ip": "10.70.10.38",
+          "db_endpoint": "pos-mt-db.internal.pos.pditechnologies.com",
+          "smb_url": "pos-mt-smb.internal.pos.pditechnologies.com",
+          "file_server_url": "pos-mt-file-server.internal.pos.pditechnologies.com"
+        }
+      }
+    },
+    "ci": {
+      "authorizedUsers": [
+        "manikanta.taneeru@pditechnologies.com",
+        "sudhakarareddy.m@pditechnologies.com",
+        "manoj.sainath@pditechnologies.com",
+        "rushikesh.reddy@pditechnologies.com",
+        "sivanjaneya.r@pditechnologies.com",
+        "bhavyasai.kammara@pditechnologies.com",
+        "vidhatha.madishetti@pditechnologies.com"
+      ],
+      "oc1": {
+        "optional-params": {
+          "InstallWindowsExporter": false,
+          "InstallDatadog": false,
+          "InstallFluentBit": false,
+          "InstallEnvoyConnector": false,
+          "InstallDynatrace": false,
+          "FullStackMonitoring": false,
+          "isD10OrD12Customer": true,
+          "awsRegion": "eu-central-1",
+          "installdotnetPOSWatchDogservice": true
+        },
+        "customer-params": {
+          "dbids": "OC1",
+          "Subnet": "subnet-0f966ad0105aac570",
+          "vpcid": "vpc-006a50c4cdefc4f9c",
+          "db_ip": "10.70.0.71",
+          "db_endpoint": "oc1-db.internal.ci.pos.pditechnologies.com",
+          "smb_url": "oc1-smb.internal.ci.pos.pditechnologies.com"
+        },
+        "automated-deployments": {
+          "environment": "ci",
+          "product": "oc1",
+          "AWS_DEFAULT_REGION": "eu-central-1",
+          "workspace": "pos-standard-eucentral1-ci",
+          "autoTfVarsFile": "oc1.pos.auto.tfvars",
+          "backendConfigFile": "backend-configs/pos-oc1-ci.hcl",
+          "useOpenTofu": true
+        }
+      }
+    },
+    "test": {
+      "authorizedUsers": [
+        "manikanta.taneeru@pditechnologies.com",
+        "sudhakarareddy.m@pditechnologies.com",
+        "manoj.sainath@pditechnologies.com",
+        "rushikesh.reddy@pditechnologies.com",
+        "vidhatha.madishetti@pditechnologies.com",
+        "sivanjaneya.r@pditechnologies.com",
+        "vineeth.rachha@pditechnologies.com",
+        "saikumar.h@pditechnologies.com",
+        "spoorthi.b@pditechnologies.com",
+        "gopinath.emandi@pditechnologies.com",
+        "richitha.linga@pditechnologies.com"
+      ],
+      "prl-d7": {
+        "optional-params": {
+          "InstallDynatrace": false,
+          "InstallDatadog": true,
+          "InstallFluentBit": false,
+          "installOrbisProcessServices": true,
+          "isD7Customer": true,
+          "awsRegion": "eu-central-1",
+          "installdotnetPOSWatchDogservice": false
+        },
+        "automated-deployments": {
+          "environment": "test",
+          "product": "prl-d7",
+          "AWS_DEFAULT_REGION": "eu-central-1",
+          "workspace": "pos-prl-d7-eucentral1-test",
+          "autoTfVarsFile": "prl.d7.test.auto.tfvars",
+          "backendConfigFile": "backend-configs/pos-prl-d7-test.hcl",
+          "useOpenTofu": true
+        },
+        "customer-params": {
+          "dbids": "WAITROSEPRL,NLPRL,UKPRL,region1,region2",
+          "Subnet": "subnet-087ce9ef375ed5c5a",
+          "vpcid": "vpc-0e2aa9d866f7718c2",
+          "db_ip": "10.70.5.77",
+          "db_endpoint": "prl-d7-db.internal.test.pos.pditechnologies.com",
+          "smb_url": "prl-d7-smb.internal.test.pos.pditechnologies.com"
+        }
+      },
+      "prl-d10": {
+        "optional-params": {
+          "InstallDynatrace": false,
+          "InstallDatadog": true,
+          "FullStackMonitoring": false,
+          "Configure_FileServer": true,
+          "isD10OrD12Customer": true,
+          "InstallFluentBit": false,
+          "awsRegion": "eu-central-1",
+          "installdotnetPOSWatchDogservice": true
+        },
+        "customer-params": {
+          "dbids": "rontec",
+          "db_ip": "10.70.24.245",
+          "db_endpoint": "prl-d10-db.internal.test.pos.pditechnologies.com",
+          "smb_url": "prl-d10-smb.internal.test.pos.pditechnologies.com",
+          "file_server_url": "prl-d10-file-server.internal.test.pos.pditechnologies.com"
+        },
+         "automated-deployments": {
+          "environment": "test",
+          "product": "prl-d10",
+          "AWS_DEFAULT_REGION": "eu-central-1",
+          "workspace": "prl-d10-test-eu-central-1",
+          "autoTfVarsFile": "prl.d10.test.auto.tfvars",
+          "backendConfigFile": "backend-configs/pos-prl-d10-test.hcl",
+          "useOpenTofu": true
+        }
+      },
+      "oc1": {
+        "optional-params": {
+          "InstallWindowsExporter": false,
+          "InstallFluentBit": false,
+          "InstallEnvoyConnector": true,
+          "InstallDynatrace": false,
+          "InstallDatadog": false,
+          "FullStackMonitoring": false,
+          "InstallEpsOptAppserver": true,
+          "email-ids": "nithin.s@pditechnologies.com, yogan.naik@pditechnologies.com, guruprasad.n@pditechnologies.com, vinayraj.t@pditechnologies.com, malabika.b@pditechnologies.com, rashmi.s@pditechnologies.com, shashikumar.v@pditechnologies.com",
+          "isD10OrD12Customer": true,
+          "awsRegion": "eu-central-1",
+          "installdotnetPOSWatchDogservice": true
+        },
+        "automated-deployments": {
+          "environment": "test",
+          "product": "oc1",
+          "AWS_DEFAULT_REGION": "eu-central-1",
+          "workspace": "pos-mt-eucentral1-test",
+          "autoTfVarsFile": "pos.mt.test.auto.tfvars",
+          "backendConfigFile": "backend-configs/pos-mt-test.hcl",
+          "useOpenTofu": true
+        },
+        "customer-params": {
+          "dbids": "GASPRO,MOTO,FFC,RONTEC,CHEVRON_PH,TOWNPUMP_REG,PUMA_ESAL_REG,PUMA_PAN_REG,PUMA_GMA_REG,PUMA_HND_REG,PUMA_NIC_REG,RontecNew,GASPRO_Auto,enactiveQA_Regression",
+          "Subnet": "subnet-087ce9ef375ed5c5a",
+          "vpcid": "vpc-0e2aa9d866f7718c2",
+          "db_ip": "10.70.4.84",
+          "db_endpoint": "oc1-db.internal.test.pos.pditechnologies.com",
+          "smb_url": "oc1-smb.internal.test.pos.pditechnologies.com",
+          "cognito_url": "https://cognito-idp.eu-central-1.amazonaws.com/eu-central-1_ZtbFhLNHH/.well-known/jwks.json"
+        }
+      },
+      "oc1-hf": {
+        "optional-params": {
+          "InstallWindowsExporter": false,
+          "InstallFluentBit": false,
+          "InstallEnvoyConnector": true,
+          "InstallDynatrace": false,
+          "InstallDatadog": false,
+          "FullStackMonitoring": false,
+          "InstallEpsOptAppserver": true,
+          "email-ids": "nithin.s@pditechnologies.com, yogan.naik@pditechnologies.com, guruprasad.n@pditechnologies.com, vinayraj.t@pditechnologies.com, malabika.b@pditechnologies.com, rashmi.s@pditechnologies.com, shashikumar.v@pditechnologies.com",
+          "isD10OrD12Customer": true,
+          "awsRegion": "eu-central-1",
+          "installdotnetPOSWatchDogservice": true
+        },
+        "automated-deployments": {
+          "environment": "test",
+          "product": "oc1-hf",
+          "AWS_DEFAULT_REGION": "eu-central-1",
+          "workspace": "pos-oc1-hf-eucentral1-test",
+          "autoTfVarsFile": "oc1-hf.test.auto.tfvars",
+          "backendConfigFile": "backend-configs/pos-oc1-hf-test.hcl",
+          "useOpenTofu": true
+        },
+        "customer-params": {
+          "dbids": "GASPRO,RONTEC",
+          "Subnet": "subnet-09aa0803a03fca701",
+          "vpcid": "vpc-0e2aa9d866f7718c2",
+          "db_ip": "10.70.96.172",
+          "db_endpoint": "oc1-hf-db.internal.test.pos.pditechnologies.com",
+          "smb_url": "oc1-hf-smb.internal.test.pos.pditechnologies.com",
+          "cognito_url": "https://cognito-idp.eu-central-1.amazonaws.com/eu-central-1_ZtbFhLNHH/.well-known/jwks.json"
+        }
+      }
+    },    
+    "dev": {
+      "authorizedUsers": [
+        "manikanta.taneeru@pditechnologies.com",
+        "sudhakarareddy.m@pditechnologies.com",
+        "manoj.sainath@pditechnologies.com",
+        "rushikesh.reddy@pditechnologies.com",
+        "bhavyasai.kammara@pditechnologies.com",
+        "sivanjaneya.r@pditechnologies.com",
+        "vidhatha.madishetti@pditechnologies.com"
+      ],
+      "d10-us": {
+        "optional-params": {
+          "InstallEnvoyConnector": true,
+          "InstallEpsOptAppserver": true,
+          "isD10OrD12Customer": true,
+          "awsRegion": "us-east-1",
+          "installdotnetPOSWatchDogservice": true
+        },
+        "automated-deployments": {
+          "environment": "dev",
+          "product": "d10-us",
+          "AWS_DEFAULT_REGION": "us-east-1",
+          "workspace": "pos-us-east1-dev-d10",
+          "autoTfVarsFile": "d10-us.pos.auto.tfvars",
+          "backendConfigFile": "backend-configs/pos-d10-us-dev.hcl",
+          "useOpenTofu": true
+        },
+        "customer-params": {
+          "dbids": "USBASEDEV,FUELTEST_US,US_SUPPORT,UDFDEV",
+          "db_ip": "10.70.68.37",
+          "db_endpoint": "d10-us-db.internal.dev.pos.pditechnologies.com",
+          "smb_url": "d10-us-smb.internal.dev.pos.pditechnologies.com",
+          "cognito_url": "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_DAwtABKvB/.well-known/jwks.json"
+        }
+      },
+      "d10-erp": {
+        "optional-params": {
+          "InstallEnvoyConnector": true,
+          "InstallEpsOptAppserver": true,
+          "isD10OrD12Customer": true,
+          "awsRegion": "us-east-1",
+          "installdotnetPOSWatchDogservice": true
+        },
+        "customer-params": {
+          "dbids": "USBASEERP",
+          "db_ip": "10.70.69.44",
+          "db_endpoint": "d10-erp-db.internal.dev.pos.pditechnologies.com",
+          "smb_url": "d10-erp-smb.internal.dev.pos.pditechnologies.com",
+          "cognito_url": "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_DAwtABKvB/.well-known/jwks.json"
+        },
+        "automated-deployments": {
+          "environment": "dev",
+          "product": "d10-erp",
+          "AWS_DEFAULT_REGION": "us-east-1",
+          "workspace": "pos-us-east-1-dev-d10-erp",
+          "autoTfVarsFile": "d10-us.erp.pos.auto.tfvars",
+          "backendConfigFile": "backend-configs/pos-d10-us-erp-dev.hcl",
+          "useOpenTofu": true
+        }
+      },
+      "d10": {
+        "optional-params": {
+          "isD10OrD12Customer": true,
+          "InstallEnvoyConnector": true,
+          "InstallFluentBit": false,
+          "awsRegion": "eu-central-1",
+          "InstallOrbisCloudDBServer": true,
+          "installdotnetPOSWatchDogservice": true
+        },
+        "customer-params": {
+          "dbids": "OC1,MOTO,RONTEC,RONTEC_REG,PUMA_HND_REG,PUMA_PAN_REG,PUMA_GMA_REG,PUMA_NIC_REG,PUMA_ESAL_REG,RONTECREG",
+          "Subnet": "subnet-0173ed6b62e3b368a",
+          "vpcid": "vpc-0e04a2b06e48f4169",
+          "db_ip": "10.70.2.89",
+          "db_endpoint": "d10-db.internal.dev.pos.pditechnologies.com",
+          "smb_url": "d10-smb.internal.dev.pos.pditechnologies.com"
+        },
+        "automated-deployments": {
+          "environment": "dev",
+          "product": "d10",
+          "AWS_DEFAULT_REGION": "eu-central-1",
+          "workspace": "pos-standard-eucentral1-dev-d10",
+          "autoTfVarsFile": "d10.pos.auto.tfvars",
+          "backendConfigFile": "backend-configs/pos-d10-dev.hcl",
+          "useOpenTofu": true
+        }
+      },
+      "d7": {
+        "optional-params": {
+          "isD7Customer": true,
+          "InstallFluentBit": false,
+          "awsRegion": "eu-central-1",
+          "installdotnetPOSWatchDogservice": false
+        },
+        "customer-params": {
+          "dbids": "SHELL_UK",
+          "Subnet": "subnet-0173ed6b62e3b368a",
+          "vpcid": "vpc-0e04a2b06e48f4169",
+          "db_ip": "10.70.2.94",
+          "db_endpoint": "d7-db.internal.dev.pos.pditechnologies.com",
+          "smb_url": "d7-smb.internal.dev.pos.pditechnologies.com"
+        },
+        "automated-deployments": {
+          "environment": "dev",
+          "product": "d7",
+          "AWS_DEFAULT_REGION": "eu-central-1",
+          "workspace": "pos-standard-eucentral1-dev-d7",
+          "autoTfVarsFile": "d7.pos.auto.tfvars",
+          "backendConfigFile": "backend-configs/pos-d7-dev.hcl",
+          "useOpenTofu": true
+        }
+      },
+      "bos1": {
+        "optional-params": {
+          "isD10OrD12Customer": true,
+          "InstallFluentBit": false,
+          "awsRegion": "eu-central-1",
+          "installdotnetPOSWatchDogservice": false
+        },
+        "customer-params": {
+          "dbids": "RONTEC,MOTO,HK",
+          "Subnet": "subnet-09bc5de267cd3590e",
+          "vpcid": "vpc-0e04a2b06e48f4169",
+          "db_ip": "10.70.28.12",
+          "db_endpoint": "bos1-db.internal.dev.pos.pditechnologies.com",
+          "smb_url": "bos1.internal.dev.pos.pditechnologies.com"
+        },
+        "automated-deployments": {
+          "environment": "dev",
+          "product": "bos1",
+          "AWS_DEFAULT_REGION": "eu-central-1",
+          "workspace": "pos-eucentral1-dev-bos1-d10",
+          "autoTfVarsFile": "bos1-d10.pos.auto.tfvars",
+          "backendConfigFile": "backend-configs/pos-bos1-d10-dev.hcl",
+          "useOpenTofu": true
+        }
+      },
+      "bos2": {
+        "optional-params": {
+          "isD10OrD12Customer": true,
+          "InstallFluentBit": false,
+          "awsRegion": "eu-central-1",
+          "InstallEpsOptAppserver": true,
+          "installdotnetPOSWatchDogservice": false
+        },
+        "customer-params": {
+          "dbids": "RONTEC_BOS2,MOTO_BOS2,CHEVRONKH_BOS2",
+          "Subnet": "subnet-09bc5de267cd3590e",
+          "vpcid": "vpc-0e04a2b06e48f4169",
+          "db_ip": "10.70.28.12",
+          "db_endpoint": "bos1-db.internal.dev.pos.pditechnologies.com",
+          "cognito_url": "https://cognito-idp.eu-central-1.amazonaws.com/eu-central-1_YQAoAhsR7/.well-known/jwks.json",
+          "smb_url": "bos2.internal.dev.pos.pditechnologies.com"
+        },
+        "automated-deployments": {
+          "environment": "dev",
+          "product": "bos2",
+          "AWS_DEFAULT_REGION": "eu-central-1",
+          "workspace": "pos-eucentral1-dev-bos2-d10",
+          "autoTfVarsFile": "bos2-d10.pos.auto.tfvars",
+          "backendConfigFile": "backend-configs/pos-bos2-d10-dev.hcl",
+          "useOpenTofu": true
+        }
+      }
+    },
+    "shared": {
+      "authorizedUsers": [
+        "rushikesh.reddy@pditechnologies.com",
+        "lakshminarayanan.vn@pditechnologies.com",
+        "jaheer.shaik@pdisoftware.com",
+        "manoj.sainath@pditechnologies.com",
+        "venkatesh.b@pditechnologies.com",
+        "manoj.sainath@pdisoftware.com",
+        "vinayraj.t@pditechnologies.com"
+      ],
+      "liquibase": {
+        "optional-params": {
+          "awsRegion": "us-east-1"
+        },
+        "customer-params": {
+          "db_ip": "54.158.99.230"
+        }
+      }
+    }
+  }
+}
+
