@@ -1,46 +1,42 @@
 pipeline {
     agent any
 
+    options {
+        skipDefaultCheckout(true)
+    }
+
     stages {
-        stage('Read JSON and Print DB IPs') {
+        stage('Checkout') {
             steps {
-                script {
-                    def jsonText = readFile('customer-config.json')
-                    def config = new groovy.json.JsonSlurperClassic().parseText(jsonText)
+                checkout scm
+            }
+        }
 
-                    config.environments.each { envName, envData ->
+        stage('Extract customer DB IPs') {
+            steps {
+                sh '''
+                set -e
 
-                        // Ignore shared explicitly
-                        if (envName == 'shared') {
-                            return
-                        }
+                if ! command -v jq >/dev/null 2>&1; then
+                  echo "ERROR: jq is not installed on this agent"
+                  exit 1
+                fi
 
-                        echo "========== ENV: ${envName} =========="
-
-                        envData.each { customerName, customerData ->
-
-                            // Ignore authorizedUsers
-                            if (customerName == 'authorizedUsers') {
-                                return
-                            }
-
-                            // Defensive checks
-                            if (!customerData.containsKey('customer-params')) {
-                                return
-                            }
-
-                            def customerParams = customerData['customer-params']
-
-                            if (customerParams.containsKey('db_ip')) {
-                                def dbIp = customerParams.db_ip
-                                echo "Customer: ${customerName} | DB_IP: ${dbIp}"
-                            }
-                        }
-                    }
-                }
+                jq -r '
+                  .environments
+                  | to_entries[]
+                  | select(.key != "shared")
+                  | .key as $env
+                  | .value
+                  | to_entries[]
+                  | select(.key != "authorizedUsers")
+                  | select(.value["customer-params"] != null)
+                  | select(.value["customer-params"].db_ip != null)
+                  | "\($env) | \(.key) | \(.value["customer-params"].db_ip)"
+                ' customer-config.json
+                '''
             }
         }
     }
 }
-
 
